@@ -14,11 +14,15 @@ CHUNK_SIZE = 1024
 model = SentenceTransformer("BAAI/bge-m3")
 print("Loaded the embedding model...")
 
+def split_text(text):
+    # TODO: Replace this with a more advanced algorithm
+    return [doc_text[i:i+CHUNK_SIZE] for i in range(0, len(doc_text), CHUNK_SIZE)]
+
 repo = "allmalab/eqanun"
 doc_id = os.environ["DOCUMENT_ID"]
 dataset = load_dataset(repo, cache_dir="hf_cache")
 doc_text = dataset["train"].filter(lambda x: x["id"] == doc_id)["text"][0]
-chunks = [doc_text[i:i+CHUNK_SIZE] for i in range(0, len(doc_text), CHUNK_SIZE)]
+chunks = split_text(doc_text)
 print("Loaded the text corpus...")
 
 embedding_file = os.path.join("embeddings", f"{doc_id}.pickle")

@@ -1,6 +1,6 @@
 # Hüquq çatbotu
 
-Əmək məcəlləsi ilə bağlı suallar verə biləcəyiniz hüquq çatbotudur.
+Əmək məcəlləsi ilə bağlı suallar verə biləcəyiniz hüquq çatbotudur. Çatbotu [buradan](https://azerbaijanilawchatbot.streamlit.app/) yoxlaya bilərsiniz.
 
 Üstünlükləri:
 * Vektorlaşdırma modeli açıq mənbəlidir və heç bir bulud həllindən asılı deyil.
@@ -40,3 +40,7 @@ DOCUMENT_ID istədiyiniz məcəllənin e-qanun vebsaytındakı id-si ilə eyni o
 ## Növbəti işlər
 - [ ] Layihəni konteynerlərşdirmək.
 - [ ] Windows dəstəyi (baxın: birinci)
+
+## Qeydlər
+* Streamlit şablonu [buradan](https://github.com/streamlit/llm-examples/blob/main/Chatbot.py) götürülüb.
+* Mətnlər [allmalab/eqanun](https://huggingface.co/datasets/allmalab/eqanun) datasetindən götürülüb.
