@@ -38,4 +38,3 @@ DOCUMENT_ID istədiyiniz məcəllənin e-qanun vebsaytındakı id-si ilə eyni o
 ## Növbəti işlər
 - [ ] Layihəni konteynerlərşdirmək.
 - [ ] Windows dəstəyi (baxın: birinci)
-- [ ] 
