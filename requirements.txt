@@ -1,0 +1,8 @@
+openai
+streamlit
+python-dotenv
+faiss-cpu
+tqdm
+sentence-transformers
+datasets
+numpy

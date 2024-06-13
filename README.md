@@ -10,6 +10,8 @@ Boşluqlar:
 * Dil modeli kimi GPT-3.5-Turbo istifadə olunur. Bu layihədə istifadə olunan tək bulud həllidir. İstifadəsi üçün OpenAI API açarı lazımdır.
 * Eyni anda yalnız bir qanun üçün işləyir.
 * Çat tarixçəsi yoxudur. Hər sual ayrıca nəzərə alınır (tarixçə əlavə etmək asandır, keyfiyyətli şəkildə etmək isə çətin).
+* Mətni parçalara bölmək üçün daha dəqiq alqoritmlər istifadə etmək lazımdır.
+* İstifadəçi birbaşa dil modeli ilə ünsiyyət qurur. Arada idarəedici rolu oynayan element yoxdur.
 
 ## Quraşdırma
 

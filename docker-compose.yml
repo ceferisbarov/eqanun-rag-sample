@@ -1,0 +1,10 @@
+services:
+  chatbot:
+    build: .
+    ports:
+      - 8501:8501
+    env_file:
+      - .env
+    volumes:
+      - ./embeddings:/app/embeddings
+      - ./hf_cache:/app/hf_cache
