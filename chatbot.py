@@ -29,19 +29,18 @@ def prepare_prompt(documents, question):
 
     return prompt
 
+st.sidebar.image("allmalab.png", use_column_width=True)
+
 with st.sidebar:
     openai_api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password")
     "[Get an OpenAI API key](https://platform.openai.com/account/api-keys)"
-    "[View the source code](https://github.com/streamlit/llm-examples/blob/main/Chatbot.py)"
-    "[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/streamlit/llm-examples?quickstart=1)"
+    "[View the source code](https://github.com/ceferisbarov/eqanun-rag-sample)"
 
-st.title("💬 Hüquq Çatbotu")
+doc_name = os.environ["DOCUMENT_NAME"]
+st.title(f"💬 Hüquq Çatbotu ({doc_name})")
 st.caption("🚀 aLLMA Lab tərəfindən hazırlanmışdır.")
 if "messages" not in st.session_state:
     st.session_state["messages"] = [{"role": "assistant", "content": "Sizə necə kömək edə bilərəm?"}]
-
-for msg in st.session_state.messages:
-    st.chat_message(msg["role"]).write(msg["content"])
 
 if prompt := st.chat_input():
     st.chat_message("user").write(prompt)
