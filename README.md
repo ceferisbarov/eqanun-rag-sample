@@ -9,7 +9,7 @@
 * LangChain və LLaMAIndex kimi böyük kitabxanalardan istifadə olunmayıb. Bütün mərhələlər mümkün olduğu qədər təmiz Python ilə və ya Numpy və FAISS kimi daha fundamental kitabxanalar ilə yazılıb.
 
 Boşluqlar:
-* Dil modeli kimi GPT-3.5-Turbo istifadə olunur. Bu layihədə istifadə olunan tək bulud həllidir. İstifadəsi üçün OpenAI API açarı lazımdır.
+* Dil modeli kimi GPT-4o istifadə olunur. Bu layihədə istifadə olunan tək bulud həllidir. İstifadəsi üçün OpenAI API açarı lazımdır.
 * Eyni anda yalnız bir qanun üçün işləyir.
 * Çat tarixçəsi yoxudur. Hər sual ayrıca nəzərə alınır (tarixçə əlavə etmək asandır, keyfiyyətli şəkildə etmək isə çətin).
 * Mətni parçalara bölmək üçün daha dəqiq alqoritmlər istifadə etmək lazımdır.

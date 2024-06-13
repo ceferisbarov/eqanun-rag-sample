@@ -13,7 +13,7 @@ def prepare_prompt(documents, question):
         documents_string += "\n"
 
     prompt = f"""
-    DOCUMENT:
+    DOCUMENTS:
     {documents_string}
 
     QUESTION:
@@ -22,9 +22,10 @@ def prepare_prompt(documents, question):
     INSTRUCTIONS:
     You are a legal chatbot developed by aLLMA Lab.
     You understand and speak in Azerbaijani.
-    Answer the users QUESTION using the DOCUMENT text above.
+    Answer the users QUESTION using the DOCUMENTS text above.
     Keep your answer ground in the facts of the DOCUMENT.
-    If the DOCUMENT doesn’t contain the facts to answer the QUESTION return nothing.
+    If the DOCUMENTS don’t contain the facts to answer the QUESTION return nothing.
+    If user asks a general question, ignore the DOCUMENTS and carry the conversation yourself.
     """
 
     return prompt
@@ -47,7 +48,7 @@ if prompt := st.chat_input():
         documents = faiss_search(prompt)
         full_prompt = prepare_prompt(documents, prompt)
         st.session_state.messages.append({"role": "user", "content": full_prompt})
-        response = client.chat.completions.create(model="gpt-3.5-turbo", messages=st.session_state.messages)
+        response = client.chat.completions.create(model="gpt-4o", messages=[st.session_state.messages[-1]])
         msg = response.choices[0].message.content
         st.session_state.messages.append({"role": "assistant", "content": msg})
     st.chat_message("assistant").write(msg)
