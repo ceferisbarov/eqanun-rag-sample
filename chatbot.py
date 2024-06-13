@@ -32,8 +32,6 @@ def prepare_prompt(documents, question):
 st.sidebar.image("allmalab.png", use_column_width=True)
 
 with st.sidebar:
-    openai_api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password")
-    "[Get an OpenAI API key](https://platform.openai.com/account/api-keys)"
     "[View the source code](https://github.com/ceferisbarov/eqanun-rag-sample)"
 
 doc_name = os.environ["DOCUMENT_NAME"]
