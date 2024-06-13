@@ -1,5 +1,7 @@
 # Hüquq çatbotu
 
+![](allmalab.png)
+
 Əmək məcəlləsi ilə bağlı suallar verə biləcəyiniz hüquq çatbotudur. Çatbotu [buradan](https://azerbaijanilawchatbot.streamlit.app/) yoxlaya bilərsiniz.
 
 Üstünlükləri:
