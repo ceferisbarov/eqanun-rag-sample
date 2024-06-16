@@ -17,6 +17,8 @@ ADD chatbot.py /app/chatbot.py
 
 ADD engine.py /app/engine.py
 
+ADD sentence_tokenizer_aze /app/sentence_tokenizer_aze
+
 ADD allmalab.png /app/allmalab.png
 
 HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health

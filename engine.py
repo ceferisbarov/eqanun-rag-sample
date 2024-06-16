@@ -6,17 +6,41 @@ from datasets import load_dataset
 from sentence_transformers import SentenceTransformer
 import numpy as np
 
+from sentence_tokenizer_aze.tokenizer import sent_tokenize_aze
+
 from dotenv import load_dotenv
 load_dotenv()
+
 os.makedirs("embeddings", exist_ok=True)
+
 BATCH_SIZE = 2
-CHUNK_SIZE = 1024
+CHUNK_SIZE = 4096
 model = SentenceTransformer("BAAI/bge-m3")
 print("Loaded the embedding model...")
 
 def split_text(text):
     # TODO: Replace this with a more advanced algorithm
-    return [doc_text[i:i+CHUNK_SIZE] for i in range(0, len(doc_text), CHUNK_SIZE)]
+    sentences = sent_tokenize_aze(text.strip())
+    combined_sentences = []
+    current_sentence = ""
+    for sentence in sentences:
+        # Check if adding the next sentence would exceed the max length
+        if len(current_sentence) + len(sentence) + 1 <= CHUNK_SIZE:  # +1 for the space
+            if current_sentence:  # if current_sentence is not empty
+                current_sentence += " " + sentence
+            else:
+                current_sentence = sentence
+        else:
+            # Append the current combined sentence to the list
+            combined_sentences.append(current_sentence)
+            # Start a new combined sentence with the current sentence
+            current_sentence = sentence
+    
+    # Don't forget to add the last combined sentence to the list
+    if current_sentence:
+        combined_sentences.append(current_sentence)
+    
+    return combined_sentences
 
 repo = "allmalab/eqanun"
 doc_id = os.environ["DOCUMENT_ID"]
